@@ -1,61 +1,80 @@
-Node.js Docker Project
-Project Structure
-.idea/              # IDE configuration
-node_modules/       # Installed npm dependencies
-.dockerignore       # Files excluded from Docker image
-Dockerfile          # Docker image configuration
-index.js            # Main Node.js application
-package.json        # Project configuration and dependencies
-package-lock.json   # Locked dependency versions
-README.md           # Project documentation
+Node.js Docker Application
 
-Setup
-1. Initialize Node.js
-npm init -y
+A simple Node.js application packaged and ready to run with Docker.
 
-2. Install dependencies
+📁 Project Structure
+.
+├── .dockerignore
+├── Dockerfile
+├── README.md
+├── index.js
+├── package.json
+└── package-lock.json
+
+Files
+
+.dockerignore — Specifies files and directories that should be excluded from the Docker image.
+
+Dockerfile — Contains the instructions for building the Docker image.
+
+README.md — Project documentation and usage instructions.
+
+index.js — Main entry point of the Node.js application.
+
+package.json — Defines the project metadata, dependencies, and npm scripts.
+
+package-lock.json — Locks the exact versions of installed npm dependencies for consistent builds.
+
+🚀 Getting Started
+Prerequisites
+
+Make sure you have the following installed:
+
+Node.js
+
+npm
+
+Docker
+
+Run Locally
+
+Install the project dependencies:
+
 npm install
 
 
-This creates node_modules/ and package-lock.json.
+Start the application:
 
-3. Create Docker files
-
-.dockerignore
-
-node_modules
-.idea
-.git
-
-
-Dockerfile
-
-FROM node:20
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["node", "index.js"]
-
-4. Run locally
 node index.js
 
-5. Build Docker image
+
+Or, if a start script is defined:
+
+npm start
+
+The application will be available at:
+
+http://localhost:5000
+
+🐳 Run with Docker
+Build the Docker Image
 docker build -t node-app .
 
-6. Run Docker container
-docker run -p 3000:3000 node-app
+Run the Container
+docker run -p 5000:5000 node-app
 
+The application will be available at:
 
-Open:
+http://localhost:5000
 
-http://localhost:3000
+🛠️ Technologies
 
+Node.js
 
-node_modules/ and .idea/ should generally not be committed to Git.
+npm
+
+Docker
+
+📄 License
+
+Add your preferred license information here.
